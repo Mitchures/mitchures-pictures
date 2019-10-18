@@ -139,8 +139,6 @@ nav {
   backdrop-filter: blur(25px) saturate(120%);
   backface-visibility: hidden; // should fix flickering
   -webkit-backface-visibility: hidden;
-  // -webkit-transform: translateZ(0);
-  // -webkit-perspective: 1000;
   background: $block-bg;
   border-radius: 1.5rem;
   padding: 1.5rem !important;
