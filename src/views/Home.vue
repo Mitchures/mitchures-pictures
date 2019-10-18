@@ -1,7 +1,5 @@
 <template>
-  <div class="home">
-    <Grid/>
-  </div>
+  <Grid/>
 </template>
 
 <script>

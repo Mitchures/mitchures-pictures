@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="grid">
-            <div :key="key" v-for="(img, key) in images" class="col-xs-12">
+            <div :key="key" v-for="(img, key) in images" class="col-xs-12 col-md-6">
                 <img :src="img"  alt=""/>
             </div>
         </div>

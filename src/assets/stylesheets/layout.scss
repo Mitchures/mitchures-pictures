@@ -71,6 +71,10 @@ ul {
   padding: 0 1rem;
 }
 
+.content {
+  padding: 9rem 0;
+}
+
 nav .grid > [class*="col-"] {
   padding: 0 1rem;
 }
@@ -221,7 +225,7 @@ footer {
     display: block;
     width: 60px;
     height: 60px;
-    opacity: .75;
+    opacity: 1;
     transition: transform 300ms ease, opacity 150ms ease;
   }
 
