@@ -1,0 +1,172 @@
+@font-face {
+  font-family: "San Francisco Compact Rounded";
+  font-weight: 300;
+  font-style: normal;
+  src: url('../fonts/SF-Compact-Rounded-Light/SF-Compact-Rounded-Light.eot');
+  src: local('SF Compact Rounded Light'), local('SF-Compact-Rounded-Light'),
+      url('../fonts/SF-Compact-Rounded-Light/SF-Compact-Rounded-Light.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/SF-Compact-Rounded-Light/SF-Compact-Rounded-Light.woff2') format('woff2'),
+      url('../fonts/SF-Compact-Rounded-Light/SF-Compact-Rounded-Light.woff') format('woff'),
+      url('../fonts/SF-Compact-Rounded-Light/SF-Compact-Rounded-Light.ttf') format('truetype'),
+      url('../fonts/SF-Compact-Rounded-Light/SF-Compact-Rounded-Light.svg#SF-Compact-Rounded-Light') format('svg');
+}
+
+@font-face {
+  font-family: "San Francisco Compact Rounded";
+  font-weight: normal;
+  font-style: normal;
+  src: url('../fonts/SF-Compact-Rounded-Regular/SF-Compact-Rounded-Regular.eot');
+  src: local('SF Compact Rounded Regular'), local('SF-Compact-Rounded-Regular'),
+      url('../fonts/SF-Compact-Rounded-Regular/SF-Compact-Rounded-Regular.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/SF-Compact-Rounded-Regular/SF-Compact-Rounded-Regular.woff2') format('woff2'),
+      url('../fonts/SF-Compact-Rounded-Regular/SF-Compact-Rounded-Regular.woff') format('woff'),
+      url('../fonts/SF-Compact-Rounded-Regular/SF-Compact-Rounded-Regular.ttf') format('truetype'),
+      url('../fonts/SF-Compact-Rounded-Regular/SF-Compact-Rounded-Regular.svg#SF-Compact-Rounded-Regular') format('svg');
+}
+
+@font-face {
+  font-family: "San Francisco Compact Rounded";
+  font-weight: 500;
+  font-style: normal;
+  src: url('../fonts/SF-Compact-Rounded-Medium/SF-Compact-Rounded-Medium.eot');
+  src: local('SF Compact Rounded Medium'), local('SF-Compact-Rounded-Medium'),
+      url('../fonts/SF-Compact-Rounded-Medium/SF-Compact-Rounded-Medium.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/SF-Compact-Rounded-Medium/SF-Compact-Rounded-Medium.woff2') format('woff2'),
+      url('../fonts/SF-Compact-Rounded-Medium/SF-Compact-Rounded-Medium.woff') format('woff'),
+      url('../fonts/SF-Compact-Rounded-Medium/SF-Compact-Rounded-Medium.ttf') format('truetype'),
+      url('../fonts/SF-Compact-Rounded-Medium/SF-Compact-Rounded-Medium.svg#SF-Compact-Rounded-Medium') format('svg');
+}
+
+@font-face {
+  font-family: "San Francisco Compact Rounded";
+  font-weight: 600;
+  font-style: normal;
+  src: url('../fonts/SF-Compact-Rounded-Semibold/SF-Compact-Rounded-Semibold.eot');
+  src: local('SF Compact Rounded Semibold'), local('SF-Compact-Rounded-Semibold'),
+      url('../fonts/SF-Compact-Rounded-Semibold/SF-Compact-Rounded-Semibold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/SF-Compact-Rounded-Semibold/SF-Compact-Rounded-Semibold.woff2') format('woff2'),
+      url('../fonts/SF-Compact-Rounded-Semibold/SF-Compact-Rounded-Semibold.woff') format('woff'),
+      url('../fonts/SF-Compact-Rounded-Semibold/SF-Compact-Rounded-Semibold.ttf') format('truetype'),
+      url('../fonts/SF-Compact-Rounded-Semibold/SF-Compact-Rounded-Semibold.svg#SF-Compact-Rounded-Semibold') format('svg');
+}
+
+@font-face {
+  font-family: "San Francisco Compact Rounded";
+  font-weight: 700;
+  font-style: normal;
+  src: url('../fonts/SF-Compact-Rounded-Bold/SF-Compact-Rounded-Bold.eot');
+  src: local('SF Compact Rounded Bold'), local('SF-Compact-Rounded-Bold'),
+      url('../fonts/SF-Compact-Rounded-Bold/SF-Compact-Rounded-Bold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/SF-Compact-Rounded-Bold/SF-Compact-Rounded-Bold.woff2') format('woff2'),
+      url('../fonts/SF-Compact-Rounded-Bold/SF-Compact-Rounded-Bold.woff') format('woff'),
+      url('../fonts/SF-Compact-Rounded-Bold/SF-Compact-Rounded-Bold.ttf') format('truetype'),
+      url('../fonts/SF-Compact-Rounded-Bold/SF-Compact-Rounded-Bold.svg#SF-Compact-Rounded-Bold') format('svg');
+}
+
+@font-face {
+  font-family: "San Francisco Compact Rounded";
+  font-weight: 800;
+  font-style: normal;
+  src: url('../fonts/SF-Compact-Rounded-Heavy/SF-Compact-Rounded-Heavy.eot');
+  src: local('SF Compact Rounded Heavy'), local('SF-Compact-Rounded-Heavy'),
+      url('../fonts/SF-Compact-Rounded-Heavy/SF-Compact-Rounded-Heavy.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/SF-Compact-Rounded-Heavy/SF-Compact-Rounded-Heavy.woff2') format('woff2'),
+      url('../fonts/SF-Compact-Rounded-Heavy/SF-Compact-Rounded-Heavy.woff') format('woff'),
+      url('../fonts/SF-Compact-Rounded-Heavy/SF-Compact-Rounded-Heavy.ttf') format('truetype'),
+      url('../fonts/SF-Compact-Rounded-Heavy/SF-Compact-Rounded-Heavy.svg#SF-Compact-Rounded-Heavy') format('svg');
+}
+
+@font-face {
+  font-family: "San Francisco Compact Rounded";
+  font-weight: 900;
+  font-style: normal;
+  src: url('../fonts/SF-Compact-Rounded-Black/SF-Compact-Rounded-Black.eot');
+  src: local('SF Compact Rounded Black'), local('SF-Compact-Rounded-Black'),
+      url('../fonts/SF-Compact-Rounded-Black/SF-Compact-Rounded-Black.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/SF-Compact-Rounded-Black/SF-Compact-Rounded-Black.woff2') format('woff2'),
+      url('../fonts/SF-Compact-Rounded-Black/SF-Compact-Rounded-Black.woff') format('woff'),
+      url('../fonts/SF-Compact-Rounded-Black/SF-Compact-Rounded-Black.ttf') format('truetype'),
+      url('../fonts/SF-Compact-Rounded-Black/SF-Compact-Rounded-Black.svg#SF-Compact-Rounded-Black') format('svg');
+}
+
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$heavy: 800;
+$black: 900;
+
+body {
+  margin: 0;
+  font-family: "San Francisco Compact Rounded", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: $regular;
+  font-size: 1rem;
+  word-wrap: break-word;
+  line-height: 1.5;
+  font-kerning: normal;
+  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+  font-feature-settings: "kern", "liga", "clig", "calt";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-weight: $bold;
+}
+
+nav {
+  span {
+    font-weight: $bold;
+  }
+  ul {
+    li {
+      a {
+        font-weight: $semibold;
+      }
+    }
+  }
+}
+
+ul {
+  li {
+    h4 {
+      font-weight: $semibold;
+    }
+  }
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 2.125rem;
+  line-height: 1.3;
+}
+
+h2 {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+h3 {
+  margin: 1.25rem 0 0.5rem;
+  padding: 0;
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+h4 {
+  margin: 0.5rem 0 0.75rem 0;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1.1;
+}
+
+.link {
+  font-weight: $semibold;
+}
