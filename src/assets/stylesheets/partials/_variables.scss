@@ -2,12 +2,15 @@
 $bg: #eee;
 $primary-text: #000000;
 $secondary-text: #999aa4;
+$accent-text: #999;
 $block-bg: rgba(240, 240, 240, 0.5);
 $link-text: rgba(0, 0, 0, 0.4);
+$hover: #a6a640;
 $footer-text: rgba(0, 0, 0, 0.4);
 // Dark Mode
 $dark-bg: #000;
 $dark-primary-text: #ffffff;
+$dark-link-text: rgba(240, 240, 240, 0.4);
 // Gradients
 $gradient-cool: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
 $gradient-warm: linear-gradient(-120deg, #f6d365 0%, #fda085 100%);

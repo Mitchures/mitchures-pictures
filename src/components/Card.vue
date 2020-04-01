@@ -1,6 +1,6 @@
 <template>
-  <a :href="'/' + title.toLowerCase()">
-    <div class="card" :style="{ backgroundImage: `url('${require('../assets/images/photography/digital/' + title + '/' + cover + '.jpg')}')`}">
+  <router-link :to="'/' + title.replace(/\s/g, '').toLowerCase()">
+    <div class="card" :style="{ backgroundImage: `url('${require('../assets/images/photography/' + title + '/' + cover + '.jpg')}')`}">
       <div class="card-content">
         <div class="card-header">
           <div class='card-count'>{{ imageCount }}</div>
@@ -8,7 +8,7 @@
         </div>
       </div>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script>
@@ -17,7 +17,7 @@
     props: ['title', 'cover'],
     computed: {
       imageCount () {
-        const r = require.context("../assets/images/photography/digital/", true, /\.jpg$/);
+        const r = require.context("../assets/images/photography/", true, /\.jpg$/);
         let imgs = [];
         r.keys().forEach(key => {
           if (key.includes(this.title)) {
@@ -43,37 +43,40 @@
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     .card-content {
       height: 100%;
-      width: 75px;
-      // background-color: rgba(240, 240, 240, .5);
+      width: 0;
+      opacity: 0;
+      // background-color: rgba(166,166,64, 1);
       backdrop-filter: blur(25px) saturate(120%);
+      -webkit-transition: all .3s ease;
+      transition: all .3s ease;
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
       .card-header {
         z-index: 1;
         position: relative;
         padding: 25px;
         .card-count {
           color: #fff;
-          font-weight: 300;
+          font-weight: 200;
           font-size: 2rem;
           position: absolute;
           top: 285px;
-          left: 20px;
-          transition: all .3s ease;
-          // text-shadow: 0 2px 5px rgba(33,33,33,0.25);
+          left: 25px;
         }
         .card-title {
           color: #fff;
-          font-weight: 700;
+          font-weight: 800;
           text-transform: uppercase;
           font-size: 1.125rem;
           writing-mode: vertical-rl;
-          transition: all .3s ease;
-          // text-shadow: 0 2px 5px rgba(33,33,33,0.25);
         }
       }
     }
     &:hover {
-      // opacity: .75;
-      // transform: scale(.98) translateZ(0px);
+      .card-content {
+        opacity: 1;
+        width: 100%;
+      }
     }
   }
 </style>

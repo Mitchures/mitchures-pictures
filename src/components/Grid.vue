@@ -16,7 +16,7 @@
         }
       },
       mounted () {
-        this.importAll(require.context("../assets/images/photography/digital/", true, /\.jpg$/));
+        this.importAll(require.context("../assets/images/photography/", true, /\.jpg$/));
       },
       methods: {
         importAll(r) {
