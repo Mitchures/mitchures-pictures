@@ -4,6 +4,15 @@ $sm: 48rem;
 $md: 62rem;
 $lg: 75rem;
 
+.masonry {
+  column-count: 3;
+  column-gap: 0;
+}
+
+.masonry-brick {
+  margin: 2rem 1rem -8px 1rem;
+}
+
 .grid {
   display: flex;
   flex-direction: column;
@@ -51,7 +60,7 @@ $lg: 75rem;
 @supports (display: grid) {
   .grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat($grid-columns, 1fr);
     grid-template-rows: auto;
     > [class*="col-"] {
       margin: 0;

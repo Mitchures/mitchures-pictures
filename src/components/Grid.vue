@@ -1,9 +1,13 @@
 <template>
     <div class="container">
         <div class="grid">
-            <div :key="key" v-for="(img, key) in images" class="col-xs-12 col-md-6">
-                <img :src="img"  alt=""/>
+          <div class="col-xs-12">
+            <div class="masonry">
+              <div :key="key" v-for="(img, key) in images" class="masonry-brick">
+                  <img :src="img" class="masonry-img" alt=""/>
+              </div>
             </div>
+          </div>
         </div>
     </div>
 </template>

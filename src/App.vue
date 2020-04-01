@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Nav/>
+    <!-- <Nav/> -->
     <div class="content">
       <router-view/>
     </div>
@@ -8,9 +8,9 @@
 </template>
 
 <script>
-  import Nav from "./components/Nav";
+  // import Nav from "./components/Nav";
 
   export default {
-    components: { Nav }
+    // components: { Nav }
   }
 </script>
