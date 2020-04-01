@@ -1,29 +1,39 @@
 <template>
-  <div class="container">
-    <div class="grid">
+  <div class="container-fluid">
+    <!-- <div class="grid">
       <div class="col-xs-12">
+        <h1>Abroad</h1>
+      </div>
+    </div> -->
+    <div class="grid">
+      <div class="col-xs-12 no-padding">
         <Card :title="'Iceland'" :cover="'Skogafoss-Iceland'"/>
       </div>
     </div>
     <div class="grid">
-      <div class="col-xs-12 col-md-4">
-        <Card :title="'Canada'" :cover="'Group-1'"/>
+      <div class="col-xs-12 col-md-4 no-padding">
+        <Card :title="'Canada'" :cover="'tobias'"/>
       </div>
-      <div class="col-xs-12 col-md-8">
-        <Card :title="'Japan'" :cover="'dotonbori'"/>
+      <div class="col-xs-12 col-md-8 no-padding">
+        <Card :title="'Japan'" :cover="'kyoto'"/>
       </div>
     </div>
-    <div class="grid">
+    <!-- <div class="grid">
       <div class="col-xs-12">
-        <Card :title="'Asheville'" :cover="'DSC06867'"/>
+        <h1>Domestic</h1>
       </div>
-    </div>
+    </div> -->
     <div class="grid">
-      <div class="col-xs-12 col-md-8">
+      <div class="col-xs-12 col-md-8 no-padding">
         <Card :title="'Nashville'" :cover="'DSC04599'"/>
       </div>
-      <div class="col-xs-12 col-md-4">
+      <div class="col-xs-12 col-md-4 no-padding">
         <Card :title="'New Orleans'" :cover="'DSC05024'"/>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-xs-12 no-padding">
+        <Card :title="'Asheville'" :cover="'DSC06867'"/>
       </div>
     </div>
   </div>

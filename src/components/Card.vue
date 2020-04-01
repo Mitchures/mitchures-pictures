@@ -1,12 +1,14 @@
 <template>
-  <div class="card" :style="{ backgroundImage: `url('${require('../assets/images/photography/digital/' + title + '/' + cover + '.jpg')}')`}">
-    <div class="card-content">
-      <div class="card-header">
-        <div class='card-count'>{{ imageCount }}</div>
-        <div class='card-title'>{{ title }}</div>
+  <a :href="'/' + title.toLowerCase()">
+    <div class="card" :style="{ backgroundImage: `url('${require('../assets/images/photography/digital/' + title + '/' + cover + '.jpg')}')`}">
+      <div class="card-content">
+        <div class="card-header">
+          <div class='card-count'>{{ imageCount }}</div>
+          <div class='card-title'>{{ title }}</div>
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </template>
 
 <script>
@@ -42,35 +44,36 @@
     .card-content {
       height: 100%;
       width: 75px;
-      // backdrop-filter: blur(25px) saturate(120%);
-      // background: rgba(200, 200, 200, .5);
+      // background-color: rgba(240, 240, 240, .5);
+      backdrop-filter: blur(25px) saturate(120%);
       .card-header {
         z-index: 1;
         position: relative;
         padding: 25px;
         .card-count {
           color: #fff;
-          font-weight: bold;
+          font-weight: 300;
           font-size: 2rem;
           position: absolute;
           top: 285px;
-          left: 25px;
+          left: 20px;
           transition: all .3s ease;
-          text-shadow: 0 2px 5px rgba(33,33,33,0.25);
+          // text-shadow: 0 2px 5px rgba(33,33,33,0.25);
         }
         .card-title {
           color: #fff;
-          font-weight: bold;
+          font-weight: 700;
           text-transform: uppercase;
           font-size: 1.125rem;
           writing-mode: vertical-rl;
           transition: all .3s ease;
-          text-shadow: 0 2px 5px rgba(33,33,33,0.25);
+          // text-shadow: 0 2px 5px rgba(33,33,33,0.25);
         }
       }
     }
     &:hover {
-      // transform: scale(1.05) translateZ(0px);
+      // opacity: .75;
+      // transform: scale(.98) translateZ(0px);
     }
   }
 </style>

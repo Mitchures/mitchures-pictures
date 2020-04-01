@@ -1,32 +1,31 @@
 <template>
-    <div class="container">
-        <div class="grid">
-          <div class="col-xs-12">
-            <div class="masonry">
-              <div :key="key" v-for="(img, key) in images" class="masonry-brick">
-                  <img :src="img" class="masonry-img" alt=""/>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="masonry">
+    <div :key="key" v-for="(img, key) in images" class="masonry-brick">
+        <img :src="img" class="masonry-img" alt=""/>
     </div>
+  </div>
 </template>
 
 <script>
     export default {
       name: "Grid",
+      props: ['title'],
       data () {
         return {
-          images: {}
+          images: null
         }
       },
       mounted () {
-        this.importAll(require.context("../assets/images/photography/", true, /\.jpg$/));
+        this.importAll(require.context("../assets/images/photography/digital/", true, /\.jpg$/));
       },
       methods: {
         importAll(r) {
-          let imgs = {};
-          r.keys().forEach(key => (imgs[key] = r(key)));
+          let imgs = [];
+          r.keys().forEach(key => {
+            if (key.includes(this.title)) {
+              imgs.push(r(key));
+            }
+          });
           this.images = imgs;
         }
       }

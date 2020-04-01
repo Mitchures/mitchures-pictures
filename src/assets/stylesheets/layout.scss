@@ -64,6 +64,10 @@ ul {
   }
 }
 
+.no-padding {
+  padding: 0 !important;
+}
+
 .container {
   max-width: 76rem;
   margin: auto;
@@ -193,6 +197,17 @@ footer {
   li {
     display: inline-block;
     margin: 0 1.75rem 0 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: $dark-bg;
+    color: $dark-primary-text;
+  }
+
+  h1, h2, h3, h4, h5 {
+    color: $dark-primary-text;
   }
 }
 

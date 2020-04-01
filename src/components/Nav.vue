@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <div class="container">
+        <div class="container-fluid">
             <div class="grid">
                 <div class="col-xs-12">
                     <figure class="media">
