@@ -1,51 +1,51 @@
 <template>
   <div class="container">
-    <div class="grid">
-      <div class="col-xs-5 col-md-6 no-padding-left">
-        <h5>Travel</h5>
-        <h1>Abroad</h1>
+    <section>
+      <div class="grid">
+        <div class="col-xs-12 col-md-6 no-padding-left">
+          <h5>Travel</h5>
+          <h1>Abroad</h1>
+          <h3 style="color: #bbb; margin-top: 0;">Iceland, Canada, Japan</h3>
+        </div>
       </div>
-      <div class="col-xs-7 col-md-6 no-padding-right">
-        <br/>
-        <h3 style="color: #bbb; text-align: right;">Iceland, Canada, Japan</h3>
+      <div class="grid">
+        <div class="col-xs-12 no-padding">
+          <Card :title="'Iceland'" :cover="'Skogafoss-Iceland'"/>
+        </div>
       </div>
-    </div>
-    <div class="grid">
-      <div class="col-xs-12 no-padding">
-        <Card :title="'Iceland'" :cover="'Skogafoss-Iceland'"/>
+      <div class="grid">
+        <div class="col-xs-12 col-md-6 no-padding">
+          <Card :title="'Canada'" :cover="'tobias'"/>
+        </div>
+        <div class="col-xs-12 col-md-6 no-padding">
+          <Card :title="'Japan'" :cover="'kyoto'"/>
+        </div>
       </div>
-    </div>
-    <div class="grid">
-      <div class="col-xs-12 col-md-6 no-padding">
-        <Card :title="'Canada'" :cover="'tobias'"/>
+    </section>
+    <section>
+      <div class="grid">
+        <div class="col-xs-12 no-padding-left">
+          <h5>Travel</h5>
+          <h1>Domestic</h1>
+          <h3 style="color: #bbb; margin-top: 0;">Asheville, Nashville, New Orleans</h3>
+        </div>
       </div>
-      <div class="col-xs-12 col-md-6 no-padding">
-        <Card :title="'Japan'" :cover="'kyoto'"/>
+      <div class="grid">
+        <div class="col-xs-12 col-md-8 no-padding">
+          <Card :title="'Nashville'" :cover="'DSC04599'" height="700px"/>
+        </div>
+        <div class="col-xs-12 col-md-4 no-padding">
+          <div class="grid">
+            <div class="col-xs-12 no-padding">
+              <Card :title="'Asheville'" :cover="'DSC06867'"/>
+            </div>
+            <div class="col-xs-12 no-padding">
+              <Card :title="'New Orleans'" :cover="'DSC05024'"/>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="grid">
-      <div class="col-xs-5 col-md-6 no-padding-left">
-        <h5>Travel</h5>
-        <h1>Domestic</h1>
-      </div>
-      <div class="col-xs-7 col-md-6 no-padding-right">
-        <br/>
-        <h3 style="color: #bbb; text-align: right;">Asheville, Nashville, New Orleans</h3>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="col-xs-12 no-padding">
-        <Card :title="'Asheville'" :cover="'DSC06867'"/>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="col-xs-12 col-md-6 no-padding">
-        <Card :title="'Nashville'" :cover="'DSC04599'"/>
-      </div>
-      <div class="col-xs-12 col-md-6 no-padding">
-        <Card :title="'New Orleans'" :cover="'DSC05024'"/>
-      </div>
-    </div>
+    </section>
   </div>
 </template>
 

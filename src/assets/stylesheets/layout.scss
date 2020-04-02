@@ -108,14 +108,18 @@ ul {
 }
 
 .masonry {
-  // column-count: 3;
-  // column-gap: 0;
+  column-count: 2;
+  column-gap: 1rem;
   .masonry-brick {
-    // margin: 2rem 1rem -8px 1rem;
+    margin: 0 0 .5rem;
     .masonry-img {
       width: 100%;
     }
   }
+}
+
+section {
+  padding: 0 0 5rem;
 }
 
 nav .grid > [class*="col-"] {
@@ -172,16 +176,14 @@ nav {
 }
 
 .logo {
+  display: none;
   img {
     border-radius: 100%;
-    width: 60px;
-    height: 60px;
   }
 }
 
 .logo-content {
   position: relative;
-  margin-left: .5rem;
 }
 
 .block {

@@ -4,10 +4,7 @@
       <div class="col-xs-12 col-md-6 no-padding-x">
         <h5>Travel Abroad</h5>
         <h1>Japan</h1>
-      </div>
-      <div class="col-xs-12 col-md-6 no-padding-x">
-        <br/>
-        <h3 style="color: #bbb; text-align: right;">March - April 2019</h3>
+        <h3 style="color: #bbb; margin: 0;">March - April 2019</h3>
       </div>
     </div>
     <div class="grid">

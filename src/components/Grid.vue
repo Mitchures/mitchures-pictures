@@ -7,27 +7,27 @@
 </template>
 
 <script>
-    export default {
-      name: "Grid",
-      props: ['title'],
-      data () {
-        return {
-          images: null
-        }
-      },
-      mounted () {
-        this.importAll(require.context("../assets/images/photography/", true, /\.jpg$/));
-      },
-      methods: {
-        importAll(r) {
-          let imgs = [];
-          r.keys().forEach(key => {
-            if (key.includes(this.title)) {
-              imgs.push(r(key));
-            }
-          });
-          this.images = imgs;
-        }
+  export default {
+    name: "Grid",
+    props: ['title'],
+    data () {
+      return {
+        images: null
+      }
+    },
+    mounted () {
+      this.importAll(require.context("../assets/images/photography/", true, /\.jpg$/));
+    },
+    methods: {
+      importAll(r) {
+        let imgs = [];
+        r.keys().forEach(key => {
+          if (key.includes(this.title)) {
+            imgs.push(r(key));
+          }
+        });
+        this.images = imgs;
       }
     }
+  }
 </script>

@@ -6,7 +6,7 @@ import Canada from '../views/Canada'
 import Japan from '../views/Japan'
 import Asheville from '../views/Asheville'
 import Nashville from '../views/Nashville'
-import Nola from '../views/Nola'
+import Nola from '../views/NewOrleans'
 
 Vue.use(VueRouter);
 

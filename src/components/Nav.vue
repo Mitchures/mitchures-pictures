@@ -3,16 +3,16 @@
         <div class="container">
             <div class="grid">
                 <div class="col-xs-12 col-md-6 no-padding-left">
-                  <router-link to="/">
                     <figure class="media">
                       <div class="logo">
+                        <router-link to="/">
                           <img src="../assets/images/self.jpg" alt="" />
+                        </router-link>
                       </div>
                       <figcaption class="logo-content">
                           <span>Mitchures</span>
                       </figcaption>
                     </figure>
-                  </router-link>
                 </div>
                 <div class="col-xs-12 col-md-6 no-padding-x">
                     <ul>

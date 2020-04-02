@@ -1,10 +1,12 @@
 <template>
-  <router-link :to="'/' + title.replace(/\s/g, '').toLowerCase()">
-    <div class="card" :style="{ backgroundImage: `url('${require('../assets/images/photography/' + title + '/' + cover + '.jpg')}')`}">
+  <router-link :to="route">
+    <div class="card" :style="style">
       <div class="card-content">
         <div class="card-header">
           <div class='card-count'>{{ imageCount }}</div>
-          <div class='card-title'>{{ title }}</div>
+          <div class='card-title'>
+            <span>{{ title }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -14,7 +16,24 @@
 <script>
   export default {
     name: 'Card',
-    props: ['title', 'cover'],
+    props: {
+      title: {
+        type: String,
+        default: null
+      },
+      cover: {
+        type: String,
+        default: null
+      },
+      width: {
+        type: String,
+        default: "100%",
+      },
+      height: {
+        type: String,
+        default: "350px",
+      }
+    },
     computed: {
       imageCount () {
         const r = require.context("../assets/images/photography/", true, /\.jpg$/);
@@ -29,6 +48,15 @@
           return '0' + count;
         else
           return count;
+      },
+      style () {
+        const style = { backgroundImage: `url('${require('../assets/images/photography/' + this.title + '/' + this.cover + '.jpg')}')` };
+        if (this.width) style.width = `${this.width}`;
+        if (this.height) style.height = `${this.height}`;
+        return style;
+      },
+      route () {
+        return '/' + this.title.replace(/\s/g, '').toLowerCase();
       }
     }
   }
@@ -38,14 +66,11 @@
   .card {
     background-position: center;
     background-size: cover;
-    height: 350px;
-    width: 100%;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
     .card-content {
       height: 100%;
       width: 0;
       opacity: 0;
-      // background-color: rgba(166,166,64, 1);
       backdrop-filter: blur(25px) saturate(120%);
       -webkit-transition: all .3s ease;
       transition: all .3s ease;
@@ -53,18 +78,18 @@
       transform: translateX(0);
       .card-header {
         z-index: 1;
+        height: 100%;
         position: relative;
         padding: 25px;
+        color: #fff;
         .card-count {
-          color: #fff;
           font-weight: 200;
           font-size: 2rem;
           position: absolute;
-          top: 285px;
-          left: 25px;
+          bottom: 20px;
+          right: 25px;
         }
         .card-title {
-          color: #fff;
           font-weight: 800;
           text-transform: uppercase;
           font-size: 1.125rem;
@@ -76,6 +101,14 @@
       .card-content {
         opacity: 1;
         width: 100%;
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .card {
+      .card-content {
+        background-color: rgba(0, 0, 0, .5);
       }
     }
   }
