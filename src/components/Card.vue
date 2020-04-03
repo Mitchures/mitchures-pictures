@@ -50,13 +50,28 @@
           return count;
       },
       style () {
-        const style = { backgroundImage: `url('${require('../assets/images/photography/' + this.title + '/' + this.cover + '.jpg')}')` };
+        const r = require.context("../assets/images/photography/", true, /\.jpg$/);
+        const style = {};
+        r.keys().forEach(key => {
+          if (this.cover) {
+            if (key.includes(this.cover.replace(" ", ""))) {
+              style.backgroundImage = `url('${r(key)}')`;
+            }
+          }
+          else {
+            if (key.includes(this.title) && key.includes("cover")) {
+              style.backgroundImage = `url('${r(key)}')`;
+            }
+          }
+        });
         if (this.width) style.width = `${this.width}`;
         if (this.height) style.height = `${this.height}`;
         return style;
       },
       route () {
-        return '/' + this.title.replace(/\s/g, '').toLowerCase();
+        const route = {};
+        route.name = this.title.replace(" ", "");
+        return route;
       }
     }
   }

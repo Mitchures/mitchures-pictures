@@ -26,13 +26,7 @@
                             <router-link to="/japan">Japan</router-link>
                         </li>
                         <li>
-                            <router-link to="/asheville">Asheville</router-link>
-                        </li>
-                        <li>
-                            <router-link to="/nashville">Nashville</router-link>
-                        </li>
-                        <li>
-                            <router-link to="/neworleans">Nola</router-link>
+                            <router-link to="/unitedstates">United States</router-link>
                         </li>
                     </ul>
                 </div>

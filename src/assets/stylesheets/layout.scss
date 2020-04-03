@@ -27,6 +27,11 @@ h5 {
   color: $accent-text;
 }
 
+hr {
+  border-color: $border-color;
+  margin: 2rem 0;
+}
+
 figcaption, figure, footer, header, main, nav, section {
   display: block;
 }
@@ -105,21 +110,6 @@ ul {
 
 .content {
   padding: 1rem 0;
-}
-
-.masonry {
-  column-count: 2;
-  column-gap: 1rem;
-  .masonry-brick {
-    margin: 0 0 .5rem;
-    .masonry-img {
-      width: 100%;
-    }
-  }
-}
-
-section {
-  padding: 0 0 5rem;
 }
 
 nav .grid > [class*="col-"] {
@@ -248,6 +238,10 @@ footer {
   body {
     background-color: $dark-bg;
     color: $dark-primary-text;
+  }
+
+  hr {
+    border-color: $dark-border-color;
   }
 
   h1, h2, h3, h4, h5 {

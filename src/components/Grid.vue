@@ -9,7 +9,12 @@
 <script>
   export default {
     name: "Grid",
-    props: ['title'],
+    props: {
+      title: {
+        type: String,
+        default: null
+      }
+    },
     data () {
       return {
         images: null
@@ -17,6 +22,7 @@
     },
     mounted () {
       this.importAll(require.context("../assets/images/photography/", true, /\.jpg$/));
+      window.scrollTo(0, 0);
     },
     methods: {
       importAll(r) {
@@ -31,3 +37,16 @@
     }
   }
 </script>
+
+<style lang="scss">
+  .masonry {
+    column-count: 2;
+    column-gap: 1rem;
+    .masonry-brick {
+      margin: 0 0 .5rem;
+      .masonry-img {
+        width: 100%;
+      }
+    }
+  }
+</style>
