@@ -27,7 +27,7 @@
     methods: {
       importAll(r) {
         let imgs = [];
-        r.keys().forEach(key => {
+        r.keys().map(key => {
           if (key.includes(this.title)) {
             imgs.push(r(key));
           }

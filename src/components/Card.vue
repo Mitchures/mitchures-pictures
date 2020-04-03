@@ -37,13 +37,12 @@
     computed: {
       imageCount () {
         const r = require.context("../assets/images/photography/", true, /\.jpg$/);
-        let imgs = [];
-        r.keys().forEach(key => {
+        let count = 0;
+        r.keys().map(key => {
           if (key.includes(this.title)) {
-            imgs.push(r(key));
+            count++;
           }
         });
-        const count = imgs.length;
         if (count < 10)
           return '0' + count;
         else
@@ -52,7 +51,7 @@
       style () {
         const r = require.context("../assets/images/photography/", true, /\.jpg$/);
         const style = {};
-        r.keys().forEach(key => {
+        r.keys().map(key => {
           if (this.cover) {
             if (key.includes(this.cover.replace(" ", ""))) {
               style.backgroundImage = `url('${r(key)}')`;

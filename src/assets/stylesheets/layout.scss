@@ -234,6 +234,42 @@ footer {
   }
 }
 
+.link {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: $footer-text;
+    font-size: 16px;
+    &::before {
+        @include pseudo();
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0.125rem;
+        background: transparent;
+        visibility: visible;
+        transform: translateX(0);
+    }
+    &::after {
+        @include pseudo();
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0.125rem;
+        background-color: $hover;
+        visibility: hidden;
+        transform: translateX(-100%);
+        transition: all 0.3s ease;
+    }
+    &:hover {
+        color: #000;
+        &::after {
+            visibility: visible;
+            transform: translateX(0);
+        }
+    }
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background-color: $dark-bg;
@@ -263,6 +299,20 @@ footer {
       }
     }
   }
+
+  .link {
+    color: $dark-link-text;
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  footer {
+    p {
+      color: $dark-footer-text;
+    }
+  }
+
 }
 
 @media (min-width: $sm) {
