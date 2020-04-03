@@ -39,7 +39,7 @@
         const r = require.context("../assets/images/photography/", true, /\.jpg$/);
         let count = 0;
         r.keys().map(key => {
-          if (key.includes(this.title)) {
+          if (key.includes(this.title) && !key.includes("cover") && !key.includes("thumb")) {
             count++;
           }
         });
@@ -81,7 +81,7 @@
     background-position: center;
     background-size: cover;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-    .card-content {
+    &-content {
       height: 100%;
       width: 0;
       opacity: 0;
@@ -90,26 +90,26 @@
       transition: all .3s ease;
       -webkit-transform: translateX(0);
       transform: translateX(0);
-      .card-header {
-        z-index: 1;
-        height: 100%;
-        position: relative;
-        padding: 25px;
-        color: #fff;
-        .card-count {
-          font-weight: 200;
-          font-size: 2rem;
-          position: absolute;
-          bottom: 20px;
-          right: 25px;
-        }
-        .card-title {
-          font-weight: 800;
-          text-transform: uppercase;
-          font-size: 1.125rem;
-          writing-mode: vertical-rl;
-        }
-      }
+    }
+    &-header {
+      z-index: 1;
+      height: 100%;
+      position: relative;
+      padding: 25px;
+      color: #fff;
+    }
+    &-count {
+      font-weight: 200;
+      font-size: 2rem;
+      position: absolute;
+      bottom: 20px;
+      right: 25px;
+    }
+    &-title {
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 1.125rem;
+      writing-mode: vertical-rl;
     }
     &:hover {
       .card-content {
@@ -121,7 +121,7 @@
 
   @media (prefers-color-scheme: dark) {
     .card {
-      .card-content {
+      &-content {
         background-color: rgba(0, 0, 0, .5);
       }
     }
