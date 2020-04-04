@@ -198,7 +198,7 @@
       left: 0;
       bottom: 0;
       padding: 80px;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 1);
       text-align: center;
     }
 
@@ -239,7 +239,7 @@
   @media (prefers-color-scheme: dark) {
     .image-dialog {
       &-background {
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(0, 0, 0, 1);
       }
 
       &-close {

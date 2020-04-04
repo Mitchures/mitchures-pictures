@@ -1,5 +1,5 @@
 <template>
-  <Gallery :title="'New Orleans'" :subtitle="'United States'"/>
+  <Gallery :title="'United States'" :subtitle="'New Orleans'"/>
 </template>
 
 <script>

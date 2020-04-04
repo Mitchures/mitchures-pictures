@@ -2,7 +2,6 @@
   <div class="container">
     <div class="grid">
       <div class="col-xs-12 no-padding-x">
-        <h5>Travel Abroad</h5>
         <h1>Canada</h1>
         <h3 style="color: #bbb; margin: 0;">August 2017</h3>
       </div>

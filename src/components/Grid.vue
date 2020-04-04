@@ -8,10 +8,15 @@
 
 <script>
   import ImageDialog from "./ImageDialog"
+  import {storage} from '../firebaseConfig'
   export default {
     name: "Grid",
     props: {
       title: {
+        type: String,
+        default: null
+      },
+      subtitle: {
         type: String,
         default: null
       }
@@ -27,20 +32,57 @@
     mounted () {
       this.importAll(require.context("../assets/images/photography/", true, /\.jpg$/));
       window.scrollTo(0, 0);
+      if (this.subtitle) {
+        this.importAllFromFirebase(storage.ref(`photography/${this.title}/${this.subtitle}`))
+      }
+      else {
+        this.importAllFromFirebase(storage.ref(`photography/${this.title}`))
+      }
     },
     methods: {
       importAll(r) {
         let imgs = []
         r.keys().map(key => {
-          if (key.includes(this.title) && !key.includes("thumb") && !key.includes("cover")) {
-            const img = {}
-            img.full = r(key)
-            const thumbKey = key.replace("full", "thumb").substr(1, key.indexOf(".", key.indexOf(".") + 2)) + "-thumb.jpg"
-            img.thumb = r('.' + thumbKey)
-            imgs.push(img)
+          if (this.subtitle) {
+            if (key.includes(this.subtitle) && !key.includes("thumb") && !key.includes("cover")) {
+              const img = {}
+              img.full = r(key)
+              img.thumb = r('.' + key.replace("full", "thumb").substr(1, key.indexOf(".", key.indexOf(".") + 2)) + "-thumb.jpg")
+              imgs.push(img)
+            }
+          }
+          else {
+            if (key.includes(this.title) && !key.includes("thumb") && !key.includes("cover")) {
+              const img = {}
+              img.full = r(key)
+              img.thumb = r('.' + key.replace("full", "thumb").substr(1, key.indexOf(".", key.indexOf(".") + 2)) + "-thumb.jpg")
+              imgs.push(img)
+            }
           }
         })
         this.images = imgs
+      },
+      importAllFromFirebase(ref) {
+        let imgs = []
+        ref.listAll().then((res) => {
+          const img = {}
+          res.prefixes.map((prefix) => {
+            console.log(prefix.name)
+            const key = prefix.name
+            prefix.listAll().then((r) => {
+              r.items.map((item, index) => {
+                console.log(index)
+                item.getDownloadURL().then((url) => {
+                  console.log(url)
+                  img[key] = url
+                  console.log(img)
+                }).catch(er => console.log(er))
+              })
+            }).catch(err => console.log(err))
+          })
+          imgs.push(img)
+          console.log(imgs)
+        }).catch(error => console.log(error))
       }
     }
   }

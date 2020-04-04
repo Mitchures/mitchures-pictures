@@ -2,20 +2,20 @@
   <div class="container">
     <div class="grid">
       <div class="col-xs-12 no-padding-left">
-        <h3 style="color: #bbb; margin-top: 0;">{{ subtitle }}</h3>
-        <h1>{{ title }}</h1>
+        <h3 style="color: #bbb; margin-top: 0;">{{ title }}</h3>
+        <h1>{{ subtitle }}</h1>
       </div>
     </div>
     <div class="grid">
       <div class="col-xs-12 no-padding-x">
-        <Grid :title="title"/>
+        <Grid :title="title" :subtitle="subtitle"/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Grid from '../components/Grid';
+  import Grid from './Grid';
   export default {
     name: 'Gallery',
     props: {
