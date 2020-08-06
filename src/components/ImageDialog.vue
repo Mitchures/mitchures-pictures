@@ -97,8 +97,8 @@
     methods: {
       showDialog () {
         storage
-          .ref(`photography/${this.gallery}/full`)
-          .child(`${this.filename}`)
+          .ref(`photography/${this.gallery}`)
+          .child(`${this.filename.replace('_720x720', '_1920x1920')}`)
           .getDownloadURL()
           .then(url => this.full = url)
           .then(() => this.appearedDialog = true)

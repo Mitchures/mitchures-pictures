@@ -36,20 +36,21 @@
     methods: {
       importAllFromFirebase (images, gallery) {
         storage
-          .ref(`photography/${gallery}/thumb`)
+          .ref(`photography/${gallery}`)
           .listAll()
           .then(results => {
             results.items.map((item) => {
-              item
-                .getDownloadURL()
-                .then((url) => {
-                  images.push({
-                    name: item.name.replace('-thumb', ''),
-                    gallery: gallery,
-                    thumb: url
-                  });
-                })
-                .catch(error => console.log(error.message))
+              if (item.name.includes("_720x720"))
+                item
+                  .getDownloadURL()
+                  .then((url) => {
+                    images.push({
+                      name: item.name,
+                      gallery: gallery,
+                      thumb: url
+                    });
+                  })
+                  .catch(error => console.log(error.message))
             })
           })
           .then(() => images.sort((a, b) => (a.name > b.name) ? 1 : -1))
