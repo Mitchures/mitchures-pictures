@@ -24,10 +24,6 @@ h1, h2, h3, h4 {
   color: $primary-text;
 }
 
-h5 {
-  color: $accent-text;
-}
-
 hr {
   border-color: $border-color;
   margin: 2rem 0;
@@ -115,6 +111,18 @@ header {
 
 .content {
   padding: 1rem 0;
+}
+
+.subtitle {
+  color: $subtitle;
+  margin: 0;
+}
+
+.description {
+  padding: 0;
+  margin: 1.45rem 0;
+  color: $description;
+  font-weight: 600;
 }
 
 nav .grid > [class*="col-"] {

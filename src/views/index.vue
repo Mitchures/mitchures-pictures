@@ -5,7 +5,7 @@
         <div class="col-xs-12 col-md-6 no-padding-left">
           <h5>Travel</h5>
           <h1>Abroad</h1>
-          <h3 style="color: #bbb; margin-top: 0;">Iceland, Canada, Japan</h3>
+          <h3 class="subtitle">Iceland, Canada, Japan</h3>
         </div>
       </div>
       <div class="grid">
@@ -27,7 +27,7 @@
         <div class="col-xs-12 no-padding-left">
           <h5>Travel</h5>
           <h1>Domestic</h1>
-          <h3 style="color: #bbb; margin-top: 0;">Asheville, Nashville, New Orleans</h3>
+          <h3 class="subtitle">Asheville, Nashville, New Orleans</h3>
         </div>
       </div>
       <div class="grid">

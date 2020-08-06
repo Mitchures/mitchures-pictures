@@ -294,7 +294,17 @@
     }
   }
 
-  @media (prefers-color-scheme: dark) {
+  @media (max-width: 48rem) {
+    .image-dialog-background {
+      padding: 0;
+
+      .image-dialog-full {
+        padding-top: 100px;
+      }
+    }
+  }
+
+    @media (prefers-color-scheme: dark) {
     .image-dialog {
       &-background {
         background-color: rgba(0, 0, 0, 1);

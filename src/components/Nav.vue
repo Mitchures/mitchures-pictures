@@ -10,7 +10,9 @@
                         </router-link>
                       </div>
                       <figcaption class="logo-content">
+                        <router-link to="/">
                           <span>Mitchures</span>
+                        </router-link>
                       </figcaption>
                     </figure>
                 </div>
