@@ -1,28 +1,71 @@
 <template>
-  <div class="image-dialog" :class="className">
-    <button class="image-dialog-trigger" type="button" @click="showDialog">
-      <img class="image-dialog-thumb" ref="thumb" :src="thumb"/>
+  <div class="imageDialog" :class="className">
+    <button
+        class="image-dialog-trigger"
+        type="button"
+        @click="showDialog"
+    >
+      <img
+          class="image-dialog-thumb"
+          ref="thumb"
+          @load="fadeInImage"
+          :style="{opacity: thumbLoaded && 1}"
+          :src="thumb"
+          alt=""
+      />
     </button>
-    <transition name="dialog" @enter="enter" @leave="leave">
-      <div class="image-dialog-background" v-show="appearedDialog" ref="dialog">
-        <button class="image-dialog-close" type="button" @click="hideDialog" aria-label="Close"></button>
-        <img class="image-dialog-animate" ref="animate" :class="{ loading: !loaded }" :src="loaded ? full : thumb"/>
-        <img class="image-dialog-full" ref="full" :src="appearedDialog && full" :width="fullWidth" :height="fullHeight" @load="onLoadFull"/>
+    <transition
+        name="dialog"
+        @enter="enter"
+        @leave="leave"
+    >
+      <div
+          class="image-dialog-background"
+          v-show="appearedDialog"
+          ref="dialog"
+      >
+        <button
+            class="image-dialog-close"
+            type="button"
+            @click="hideDialog"
+            aria-label="Close"
+        >
+        </button>
+        <img
+            class="image-dialog-animate"
+            ref="animate"
+            :class="{ loading: !loaded }"
+            :src="thumb"
+            alt=""
+        />
+        <img
+            class="image-dialog-full"
+            ref="full"
+            :src="appearedDialog && full"
+            :width="fullWidth"
+            :height="fullHeight"
+            @load="onLoadFull"
+            alt=""
+        />
       </div>
     </transition>
   </div>
 </template>
 
 <script>
-  import EXIF from "../../node_modules/exif-js/exif"
+  import {storage} from "../firebaseConfig";
   export default {
     name: "ImageDialog",
     props: {
-      thumb: {
+      filename: {
         type: String,
         default: null
       },
-      full: {
+      gallery: {
+        type: String,
+        default: null
+      },
+      thumb: {
         type: String,
         default: null
       },
@@ -37,17 +80,34 @@
       className: {
         type: String,
         default: ""
+      },
+      index: {
+        type: Number,
+        default: 0
       }
     },
     data () {
       return {
         loaded: false,
-        appearedDialog: false
+        thumbLoaded: false,
+        appearedDialog: false,
+        full: null
       }
     },
     methods: {
       showDialog () {
-        this.appearedDialog = true
+        storage
+          .ref(`photography/${this.gallery}/full`)
+          .child(`${this.filename}`)
+          .getDownloadURL()
+          .then(url => this.full = url)
+          .then(() => this.appearedDialog = true)
+          .catch(error => console.log(error.message))
+      },
+      fadeInImage () {
+        setTimeout(() => {
+          this.thumbLoaded = true
+        }, this.index * 100);
       },
       hideDialog () {
         this.appearedDialog = false
@@ -66,14 +126,16 @@
       },
       onLoadFull () {
         this.loaded = true
-        this.getMetaData(this.$refs.full)
       },
       animateImage (startEl, destEl) {
-        const start = this.getBoundForDialog(startEl)
-        this.setStart(start)
+
+        //TODO: Fix animation
+
+        const start = this.getBoundForDialog(startEl);
+        this.setStart(start);
 
         this.$nextTick(() => {
-          const dest = this.getBoundForDialog(destEl)
+          const dest = this.getBoundForDialog(destEl);
           this.setDestination(start, {
             top: dest.top,
             left: dest.left,
@@ -83,8 +145,8 @@
         })
       },
       getBoundForDialog (el) {
-        const bound = el.getBoundingClientRect()
-        const dialog = this.$refs.dialog
+        const bound = el.getBoundingClientRect();
+        const dialog = this.$refs.dialog;
         return {
           top: bound.top + dialog.scrollTop,
           left: bound.left + dialog.scrollLeft,
@@ -93,34 +155,21 @@
         }
       },
       setStart (start) {
-        const el = this.$refs.animate
-        el.style.left = start.left + 'px'
-        el.style.top = start.top + 'px'
-        el.style.width = start.width + 'px'
-        el.style.height = start.height + 'px'
-        el.style.transitionDuration = '0s'
+        const el = this.$refs.animate;
+        el.style.left = start.left + 'px';
+        el.style.top = start.top + 'px';
+        el.style.width = start.width + 'px';
+        el.style.height = start.height + 'px';
+        el.style.transitionDuration = '0s';
         el.style.transform = ''
       },
       setDestination (start, dest) {
-        const el = this.$refs.animate
-        el.style.transitionDuration = ''
+        const el = this.$refs.animate;
+        el.style.transitionDuration = '';
 
-        const translate = `translate(${dest.left - start.left}px, ${dest.top - start.top}px)`
-        const scale = `scale(${dest.width / start.width}, ${dest.height / start.height})`
+        const translate = `translate(${dest.left - start.left}px, ${dest.top - start.top}px)`;
+        const scale = `scale(${dest.width / start.width}, ${dest.height / start.height})`;
         el.style.transform = `${translate} ${scale}`
-      },
-      getMetaData (image) {
-        EXIF.getData(image, function () {
-          const allMetaData = EXIF.getAllTags(this)
-          console.log(allMetaData)
-          // console.log(allMetaData.thumbnail.blob)
-          // const objectURL = URL.createObjectURL(allMetaData.thumbnail.blob)
-          // const img = new Image()
-          // img.src = objectURL
-          // console.log(objectURL)
-          // console.log(img)
-          return allMetaData
-        })
       }
     }
   }
@@ -192,13 +241,13 @@
     &-background {
       overflow: auto;
       position: fixed;
-      z-index: 1;
+      z-index: 999;
       top: 0;
       right: 0;
       left: 0;
       bottom: 0;
       padding: 80px;
-      background-color: rgba(255, 255, 255, 1);
+      background-color: white;
       text-align: center;
     }
 
@@ -210,6 +259,15 @@
       &.loading {
         display: block;
       }
+    }
+
+    &-thumb {
+      opacity: 0;
+      -webkit-transition: all 0.5s ease-out;
+      -moz-transition: all 0.5s ease-out;
+      -ms-transition: all 0.5s ease-out;
+      -o-transition: all 0.5s ease-out;
+      transition: all 0.5s ease-out;
     }
   }
 

@@ -1,10 +1,9 @@
 <template>
   <router-link :to="route">
     <div class="card" :style="style">
-      <div class="card-content">
-        <div class="card-header">
-          <div class='card-count'>{{ imageCount }}</div>
-          <div class='card-title'>
+      <div class="card__content">
+        <div class="card__header">
+          <div class='card__title'>
             <span>{{ title }}</span>
           </div>
         </div>
@@ -35,19 +34,6 @@
       }
     },
     computed: {
-      imageCount () {
-        const r = require.context("../assets/images/photography/", true, /\.jpg$/);
-        let count = 0;
-        r.keys().map(key => {
-          if (key.includes(this.title) && !key.includes("cover") && !key.includes("thumb")) {
-            count++;
-          }
-        });
-        if (count < 10)
-          return '0' + count;
-        else
-          return count;
-      },
       style () {
         const r = require.context("../assets/images/photography/", true, /\.jpg$/);
         const style = {};
@@ -72,7 +58,7 @@
         route.name = this.title.replace(" ", "");
         return route;
       }
-    }
+    },
   }
 </script>
 
@@ -81,38 +67,32 @@
     background-position: center;
     background-size: cover;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-    &-content {
+    &__content {
       height: 100%;
       width: 0;
       opacity: 0;
+      -webkit-backdrop-filter: blur(25px) saturate(120%);
       backdrop-filter: blur(25px) saturate(120%);
       -webkit-transition: all .3s ease;
       transition: all .3s ease;
       -webkit-transform: translateX(0);
       transform: translateX(0);
     }
-    &-header {
+    &__header {
       z-index: 1;
       height: 100%;
       position: relative;
       padding: 25px;
       color: #fff;
     }
-    &-count {
-      font-weight: 200;
-      font-size: 2rem;
-      position: absolute;
-      bottom: 20px;
-      right: 25px;
-    }
-    &-title {
+    &__title {
       font-weight: 800;
       text-transform: uppercase;
-      font-size: 1.125rem;
+      font-size: 1.5rem;
       writing-mode: vertical-rl;
     }
     &:hover {
-      .card-content {
+      .card__content {
         opacity: 1;
         width: 100%;
       }
@@ -121,7 +101,7 @@
 
   @media (prefers-color-scheme: dark) {
     .card {
-      &-content {
+      &__content {
         background-color: rgba(0, 0, 0, .5);
       }
     }

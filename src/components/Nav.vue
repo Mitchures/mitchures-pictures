@@ -3,7 +3,7 @@
         <div class="container">
             <div class="grid">
                 <div class="col-xs-12 col-md-6 no-padding-left">
-                    <figure class="media animated fadeInFromLeft">
+                    <figure class="media animated fadeIn delay-hs">
                       <div class="logo">
                         <router-link to="/">
                           <img src="../assets/images/self.jpg" alt="" />
@@ -15,7 +15,7 @@
                     </figure>
                 </div>
                 <div class="col-xs-12 col-md-6 no-padding-x">
-                    <ul class="animated fadeInFromRight">
+                    <ul class="animated fadeIn delay-hs">
                         <li>
                             <router-link to="/iceland">Iceland</router-link>
                         </li>

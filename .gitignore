@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 /dist
-src/assets/images/photography
 
 # local env files
 .env.local

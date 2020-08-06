@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Nav/>
-    <div class="content">
+    <div class="content animated fadeIn delay-hs">
       <router-view/>
     </div>
     <Footer/>
